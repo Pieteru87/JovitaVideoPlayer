@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Jovita Video Player</string>
+    <string name="btnPlay">Putar Video</string>
+    <string name="txtTaruh">Taruh video ke dalam folder ini...</string>
+    <string name="txtFolder">Folder</string>
+    <string name="txtTotalDurasi">Total Durasi</string>
+    <string name="txtPlayList">VIDEO PLAY LIST</string>
+</resources>
