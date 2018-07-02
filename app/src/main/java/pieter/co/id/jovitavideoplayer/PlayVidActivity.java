@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.MediaController;
@@ -35,6 +36,28 @@ public class PlayVidActivity extends AppCompatActivity {
         final String[] fls = fl.list();
         i=getIntent().getIntExtra("IDXPILIH",0);
         PutarVid(fl,fls,i,vv);
+
+        View.OnClickListener onClickListenerNext = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i=i+1;
+                if (fls.length==i){
+                    i=0;
+                }
+                PutarVid(fl,fls, i,vv);
+            }
+        };
+        View.OnClickListener onClickListenerPrevious = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i=i-1;
+                if (i<=0){
+                    i=fls.length-1;
+                }
+                PutarVid(fl,fls, i,vv);
+            }
+        };
+        mediaCtrl.setPrevNextListeners(onClickListenerNext,onClickListenerPrevious);
 
         vv.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
